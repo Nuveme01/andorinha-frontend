@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Andorinha
+                    <small>Seja bem-vindo</small>
+                </h3>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><i class="fa fa-home"></i>
+                    </li>
+                    <li class="breadcrumb-item">Início</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-novo-tweet">
+                    <h5>Página Inicial</h5>
+                </div>
+                <div class="card-body bg-novo-tweet">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="textoNovoTweet" [(ngModel)]="tweet.conteudo" 
+                                            placeholder="O que está acontecendo?">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" (click)="tweetar()" class="btn btn-block btn-primary mr-1">Tweetar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-6 col-sm-12" *ngFor="let tweet of tweets">
+            <div class="card tweet-card">
+                <div class="card-header tweet-header">
+                    <div>
+                        <span class="tweet-name">{{tweet.usuario.nome}}</span>
+                        <span class="mr-3 ml-3">.</span>
+                        <span class="message-data-time">{{tweet.data | date: 'dd/MM/yyyy HH:mm' }}</span>
+                    </div>
+                </div>
+                <div class="card-body  p-l-0">
+                    <p class="mb-0"> {{tweet.conteudo}} </p>
+                </div>
+                <div class="card-footer tweet-footer">
+                    <div>
+                        <a routerLink="/comentarios/{{tweet.id}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-commenting-o fa-2x"></i></a>                        
+                        <span class="mr-5"></span>
+                        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa fa-reply fa-2x"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

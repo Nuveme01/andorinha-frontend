@@ -45,6 +45,8 @@ export class NavService {
 	},
 	{
 	  title: 'Cadastro de usuários', path: '/usuario-detalhe', icon: 'anchor', type: 'link', badgeType: 'primary'
+	},{
+		title: 'Tweets', path: '/tweets', icon: 'anchor', type: 'link', badgeType: 'primary'
 	}
     ];
 

@@ -10,11 +10,11 @@ import { Usuario } from 'src/app/shared/models/usuario';
 })
 export class TweetsComponent implements OnInit {
 
-  private tweet: Tweet = new Tweet();
+  public tweet: Tweet = new Tweet();
 
-  private tweets: Array<Tweet> = new Array<Tweet>();
+  public tweets: Array<Tweet> = new Array<Tweet>();
 
-  constructor( private api: ApiService ) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.limparFormulario();
@@ -30,15 +30,15 @@ export class TweetsComponent implements OnInit {
   }
 
   listarTweets(): void {
-    this.api.tweet().listarTodos().subscribe( tweets => {
-        this.tweets = tweets;
+    this.api.tweet().listarTodos().subscribe(tweets => {
+      this.tweets = tweets;
     });
   }
 
   tweetar(): void {
     //chamar o backend
-    this.api.tweet().inserir(this.tweet).subscribe( t => {
-      this.limparFormulario();  
+    this.api.tweet().inserir(this.tweet).subscribe(t => {
+      this.limparFormulario();
       this.listarTweets();
     });
   }

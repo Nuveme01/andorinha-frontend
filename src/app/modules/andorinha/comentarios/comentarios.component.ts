@@ -33,7 +33,6 @@ export class ComentariosComponent implements OnInit {
         this.idPagina = +p.id;
         this.montarTweet(this.idPagina);
         this.pesquisarComentarios(this.idPagina);
-        console.log(p);
       }
     });
   }
@@ -43,7 +42,6 @@ export class ComentariosComponent implements OnInit {
     this.seletor.idTweet = id;
     this.api.comentario().pesquisar(this.seletor).subscribe(comentarios => {
       this.comentarios = comentarios;
-      console.log(this.comentarios);
     }, erro => {
       alert("Não foi possível resgatar comentário");
     }
@@ -51,7 +49,6 @@ export class ComentariosComponent implements OnInit {
   }
 
   comentar() {
-    console.log(this.comentario)
     this.api.comentario().inserir(this.comentario).subscribe(t => {
       this.limparFormulario();
       this.pesquisarComentarios(this.idPagina);

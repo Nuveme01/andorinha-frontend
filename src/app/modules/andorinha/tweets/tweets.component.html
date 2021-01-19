@@ -29,12 +29,13 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="textoNovoTweet" [(ngModel)]="tweet.conteudo" 
-                                            placeholder="O que está acontecendo?">
+                                    <input type="text" class="form-control" name="textoNovoTweet"
+                                        [(ngModel)]="tweet.conteudo" placeholder="O que está acontecendo?">
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <button type="button" (click)="tweetar()" class="btn btn-block btn-primary mr-1">Tweetar</button>
+                                <button type="button" (click)="tweetar()"
+                                    class="btn btn-block btn-primary mr-1">Tweetar</button>
                             </div>
                         </div>
                     </form>
@@ -44,7 +45,7 @@
     </div>
 
     <div class="row">
-        
+
         <div class="col-md-6 col-sm-12" *ngFor="let tweet of tweets">
             <div class="card tweet-card">
                 <div class="card-header tweet-header">
@@ -59,14 +60,16 @@
                 </div>
                 <div class="card-footer tweet-footer">
                     <div>
-                        <a routerLink="/comentarios/{{tweet.id}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-commenting-o fa-2x"></i></a>                        
+                        <a routerLink="/comentarios/{{tweet.id}}" class="btn btn-outline-primary btn-sm"><i
+                                class="fa fa-commenting-o fa-2x"></i></a>
                         <span class="mr-5"></span>
-                        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa fa-reply fa-2x"></i></button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm"><i
+                                class="fa fa-reply fa-2x"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
+
+
     </div>
 </div>

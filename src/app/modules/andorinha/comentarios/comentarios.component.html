@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
-                <h3>Tweet {{comentario?.tweet?.id}} 
+                <h3>Tweet {{comentario?.tweet?.id}}
                     <small>{{comentarios?.length}} comentários</small>
                 </h3>
             </div>
@@ -19,7 +19,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        
+
         <div class="col-md-12">
             <div class="card tweet-card">
                 <div class="card-header tweet-header">
@@ -35,31 +35,31 @@
                 <div class="card-footer tweet-footer">
                     <div class="card-body">
                         <div class="timeline-small">
-                          
-                            <div class="media" *ngFor = "let comentario of comentarios">
-                                <div class="timeline-round m-r-30 timeline-line-1 bg-primary">
-                                <i class="fa fa-comment-o"></i>
+
+                            <div class="media" *ngFor="let comentario of comentarios">
+                                <div class="timeline-round m-r-30 m-t-10 m-l-0 timeline-line-2 bg-primary">
+                                    <i class="fa fa-comment-o"></i>
                                 </div>
                                 <div class="media-body">
                                     <div>
                                         <span class="tweet-name"> {{comentario.usuario.nome}} </span>
                                         <span class="mr-3 ml-3">.</span>
-                                        <span class="message-data-time"> {{comentario.data | date: "dd/MM/yyyy HH:mm"}} </span>
+                                        <span class="message-data-time"> {{comentario.data | date: "dd/MM/yyyy HH:mm"}}
+                                        </span>
                                     </div>
-                                <p> {{comentario.conteudo}} </p>
+                                    <p> {{comentario.conteudo}} </p>
                                 </div>
                             </div>
 
-                               
                             <div class="form-group">
                                 <h5 for="exampleInputEmail1" class="col-form-label pt-0">Comentar: </h5>
-                                <input type="text" class="form-control" [(ngModel)] = "comentario.conteudo">
+                                <input type="text" class="form-control" [(ngModel)]="comentario.conteudo">
                                 <small class="form-text text-muted">Comente algo divertido :D</small>
                             </div>
-                            <button type="button" (click)="comentar()" class="btn btn-primary mr-1" >Enviar</button>
-                                
+                            <button type="button" (click)="comentar()" class="btn btn-primary mr-1">Enviar</button>
+
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>

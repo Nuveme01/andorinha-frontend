@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ComentariosComponent implements OnInit {
 
-  private ambiente: string = environment.ambiente;
+  private idPagina: number;
 
   public comentario: Comentario = new Comentario();
 
@@ -27,16 +27,12 @@ export class ComentariosComponent implements OnInit {
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-
-    let user: Usuario = new Usuario();
-    user.id = 3;
-    user.nome = "Leonardo X";
-    this.comentario.usuario = user;
-
+    this.limparFormulario();
     this.activatedRoute.params.subscribe(p => {
       if (p.id) {
-        this.montarTweet(+p.id);
-        this.pesquisarComentarios(+p.id);
+        this.idPagina = +p.id;
+        this.montarTweet(this.idPagina);
+        this.pesquisarComentarios(this.idPagina);
         console.log(p);
       }
     });
@@ -54,11 +50,19 @@ export class ComentariosComponent implements OnInit {
     );
   }
 
-  comentar(){
+  comentar() {
     console.log(this.comentario)
-    this.api.comentario().inserir(this.comentario).subscribe(t =>{
-      this.ngOnInit();
+    this.api.comentario().inserir(this.comentario).subscribe(t => {
+      this.limparFormulario();
+      this.pesquisarComentarios(this.idPagina);
     });
+  }
+
+  limparFormulario() {
+    let user: Usuario = new Usuario();
+    user.id = 3;
+    user.nome = "Leonardo X";
+    this.comentario.usuario = user;
   }
 
   montarTweet(id: number): Tweet {

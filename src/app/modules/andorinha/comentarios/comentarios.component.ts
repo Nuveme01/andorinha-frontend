@@ -62,7 +62,7 @@ export class ComentariosComponent implements OnInit {
     this.comentario.usuario = user;
   }
 
-  montarTweet(id: number): Tweet {
+  montarTweet(id: number) {
     return this.api.tweet().consultar(id).subscribe(t => {
       this.comentario.tweet = t;
     });
